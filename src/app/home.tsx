@@ -33,7 +33,7 @@ export default function Home() {
             }
             const { data } = await api.get("/markets/category/" + category)
             setMarkets(data)
-            console.log(data)
+            
 
         } catch (error) {
             console.log(error)
@@ -50,7 +50,7 @@ export default function Home() {
         fetchMarkets()
     }, [category])
 
-    return <View style={{ flex: 1 }}>
+    return <View style={{ flex: 1, backgroundColor: "#CECECE" }}>
         <Categories
             data={categories}
             onSelect={setCategory}
