@@ -32,7 +32,7 @@ export default function Market() {
 
     async function fetchMarket() {
         try {
-            const { data } = await api.get(`./markets/${params.id}`)
+            const { data } = await api.get(`/markets/${params.id}`)
             setData(data)
             setIsLoading(false)
 
@@ -69,8 +69,8 @@ export default function Market() {
     async function getCoupon(id: string) {
         try {
             setCouponIsFeching(true)
-Aca
-            const { data } = await api.patch("./coupons/" + id)
+
+            const { data } = await api.patch("/coupons/" + id)
 
             Alert.alert("Cupom", data.coupon)
             setCoupon(data.coupon)

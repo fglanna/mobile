@@ -27,7 +27,7 @@ export function Place({ data, ...rest }: Props) {
                 <Text style={s.description} numberOfLines={2}>{data.description}</Text>
 
                 <View style={s.footer}>
-                    <IconTicket size={20} color={colors.red.base} />
+                    <IconTicket size={18} color={colors.red.base} />
                     <Text style={s.tickets}>{data.coupons}  cupons disponiveis</Text>
 
                 </View>
