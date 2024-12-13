@@ -70,10 +70,11 @@ export default function Market() {
         try {
             setCouponIsFeching(true)
 
-            const { data } = await api.patch("/coupons/" + id)
+            const { data } = await api.patch(`/coupons/${id}`)
 
-            Alert.alert("Cupom", data.coupon)
             setCoupon(data.coupon)
+            Alert.alert("Cupom", data.coupon)
+
         } catch (error) {
             console.log(error)
             Alert.alert("Erro", "Não foi possível utilizar o cupom. Cupom já utilizado, vencido ou inexistente.")
@@ -87,7 +88,7 @@ export default function Market() {
     function handleUseCoupon(id: string) {
         setIsVisibleCameraModal(false)
 
-        Alert.alert("Cupom", "Não é ´possível reutilizar um cupom resgatado. Deseja realmente resgatar o cupom?",
+        Alert.alert("Cupom", "Não é possível reutilizar um cupom resgatado. Deseja realmente resgatar o cupom?",
             [
                 { style: "cancel", text: "Não" },
                 { text: "Sim", onPress: () => getCoupon(id) },
@@ -125,7 +126,8 @@ export default function Market() {
             </View>
 
             <Modal style={{ flex: 1 }} visible={isVisibleCameraModal}>
-                <CameraView style={{ flex: 1 }}
+                <CameraView
+                    style={{ flex: 1 }}
                     facing="back"
                     onBarcodeScanned={({ data }) => {
                         if (data && !qrLock.current) {
